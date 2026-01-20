@@ -1,6 +1,7 @@
 #!/bin/sh
 # finder.sh
 # Usage: ./finder.sh <filesdir> <searchstr>
+# @credits: ChatGPT
 
 filesdir="$1"
 searchstr="$2"
@@ -19,10 +20,10 @@ if [ ! -d "$filesdir" ]; then
 fi
 
 # X = number of files (recursively)
-X=$(find "$filesdir" -type f | wc -l | tr -d ' ')
+X=$(find "$filesdir" -type f | wc -l | tr -d ' ') # Used ChatGPT to help with this line
 
 # Y = number of matching lines across all files (recursively)
-# -r: recursive, -h: no filenames, -F: fixed string match (not regex)
+# -r: recursive, -h: no filenames, -F: fixed string match
 Y=$(grep -rhnF -- "$searchstr" "$filesdir" 2>/dev/null | wc -l | tr -d ' ')
 
 echo "The number of files are $X and the number of matching lines are $Y"

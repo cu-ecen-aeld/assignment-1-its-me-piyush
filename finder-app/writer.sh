@@ -1,6 +1,7 @@
 #!/bin/sh
 # writer.sh
 # Usage: ./writer.sh <writefile> <writestr>
+# @credits: ChatGPT 
 
 writefile="$1"
 writestr="$2"
@@ -17,7 +18,7 @@ dirpath=$(dirname "$writefile")
 mkdir -p "$dirpath" 2>/dev/null
 
 # Write string to file (overwrite if exists)
-echo "$writestr" > "$writefile" 2>/dev/null
+echo "$writestr" > "$writefile" 2>/dev/null # Used ChatGPT to help with this line
 
 # Check if file creation/write succeeded
 if [ $? -ne 0 ]; then
